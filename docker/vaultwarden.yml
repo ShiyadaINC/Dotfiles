@@ -1,0 +1,13 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    environment:
+      - TZ=America/New_York
+      - SIGNUPS_ALLOWED=false
+      # - ADMIN_TOKEN='password'
+    volumes:
+      - /home/"user"/docker/vaultwarden:/data
+    ports:
+      - "8222:80"
